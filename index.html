@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html ng-app="indicators">
+  <head>
+      <meta charset="utf-8">
+      <title>Indicadores Dashboard</title>
+
+      <link rel="stylesheet" href="bower_components/bootstrap/dist/css/bootstrap.min.css" />
+      <link rel="stylesheet" href="bower_components/c3/c3.min.css" />
+      <link rel="stylesheet" href="css/styles.css" />
+  </head>
+      <body ng-controller="MainController">
+            <nav class="navbar navbar-fixed-top navbar-dark bg-danger">
+                <img class="navbar-brand pull-lg-left " src="img/ico-santander.png">
+                <a class="navbar-brand" href="#">INDICADORES</a>
+                    <ul class="nav navbar-nav">
+                        <li class="nav-item active">
+                            <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#">Features</a>
+                        </li>
+                    </ul>
+            </nav>
+    <div class="container-fluid" id="main">
+        <div class="row row-offcanvas row-offcanvas-left" ng-controller="ClassController">
+            <div class="col-lg-12">
+                <div class="card">
+                    <div class="card-block center">
+                        <div class="card-header">Contextual Classes</div>
+                        <table class="table">
+                            <thead>
+                            <tr>
+                                <th>#</th>
+                                <th>Column heading</th>
+                                <th>Column heading</th>
+                                <th>Column heading</th>
+                            </tr>
+                            </thead>
+                            <tbody>
+                            <tr >
+                                <th scope="row">1</th>
+                                <td>Column content</td>
+                                <td>Column content</td>
+                                <td>Column content</td>
+                            </tr>
+                            <tr>
+                                <th scope="row">2</th>
+                                <td>Column content</td>
+                                <td>Column content</td>
+                                <td>Column content</td>
+                            </tr>
+                            <tr >
+                                <th scope="row">3</th>
+                                <td>Column content</td>
+                                <td>Column content</td>
+                                <td>Column content</td>
+                            </tr>
+                            <tr>
+                                <th scope="row">4</th>
+                                <td>Column content</td>
+                                <td>Column content</td>
+                                <td>Column content</td>
+                            </tr>
+                            <tr class="table-info">
+                                <th scope="row">5</th>
+                                <td>Column content</td>
+                                <td>Column content</td>
+                                <td>Column content</td>
+                            </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-12">
+                <div class="card">
+                    <div class="card-block center">
+                        <h5 class="card-title">Indicador I#</h5>
+                        <p class="card-subtitle">Quick summary of this month's activity</p>
+                        <div id="chart"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+    <!--/.container-->
+    <footer class="navbar-fixed-bottom">
+        <p class="text-right small">©2015 Company</p>
+    </footer>
+
+            <script type="text/javascript" src="bower_components/jquery/dist/jquery.min.js"></script>
+            <script type="text/javascript" src="bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
+            <script type="text/javascript" src="bower_components/underscore/underscore-min.js"></script>
+            <script type="text/javascript" src="bower_components/moment/min/moment-with-locales.min.js"></script>
+            <script type="text/javascript" src="bower_components/angular/angular.min.js"></script>
+            <script type="text/javascript" src="bower_components/c3/c3.min.js"></script>
+            <script type="text/javascript" src="bower_components/d3/d3.min.js"></script>
+            <script type="text/javascript" src="app.js"></script>
+            <script type="text/javascript" src="js/controllers/MainController.js"></script>
+            <script type="text/javascript" src="js/controllers/ClassController.js"></script>
+  </body>
+</html>
