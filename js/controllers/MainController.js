@@ -65,7 +65,7 @@
           type: 'donut'
         }
       });
-      }, 2);
+      }, 100);
     }
 
     function loadCourseClassFinalized () {
@@ -96,6 +96,9 @@
       $timeout(function(){
         $scope.chart2 = c3.generate({
           bindto: '#chart2',
+          size: {
+            height: 500
+          },
           data: {
             labels: true,
             colors: {
