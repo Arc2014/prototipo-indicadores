@@ -6,6 +6,8 @@
 
       <link rel="stylesheet" href="bower_components/bootstrap/dist/css/bootstrap.min.css" />
       <link rel="stylesheet" href="bower_components/c3/c3.min.css" />
+      <link rel="stylesheet" href="bower_components/angularjs-datetime-picker/angularjs-datetime-picker.css" />
+      <link rel="stylesheet" href="css/animate.css" />
       <link rel="stylesheet" href="css/styles.css" />
   </head>
       <body ng-controller="MainController">
@@ -22,81 +24,67 @@
                     </ul>
             </nav>
     <div class="container-fluid" id="main">
-        <div class="row row-offcanvas row-offcanvas-left" ng-controller="ClassController">
+        <div class="row row-offcanvas row-offcanvas-left">
             <div class="col-lg-12">
                 <div class="card">
                     <div class="card-block center">
-                        <div class="card-header">Contextual Classes</div>
-                        <table class="table">
-                            <thead>
-                            <tr>
-                                <th>#</th>
-                                <th>Column heading</th>
-                                <th>Column heading</th>
-                                <th>Column heading</th>
-                            </tr>
-                            </thead>
-                            <tbody>
-                            <tr >
-                                <th scope="row">1</th>
-                                <td>Column content</td>
-                                <td>Column content</td>
-                                <td>Column content</td>
-                            </tr>
-                            <tr>
-                                <th scope="row">2</th>
-                                <td>Column content</td>
-                                <td>Column content</td>
-                                <td>Column content</td>
-                            </tr>
-                            <tr >
-                                <th scope="row">3</th>
-                                <td>Column content</td>
-                                <td>Column content</td>
-                                <td>Column content</td>
-                            </tr>
-                            <tr>
-                                <th scope="row">4</th>
-                                <td>Column content</td>
-                                <td>Column content</td>
-                                <td>Column content</td>
-                            </tr>
-                            <tr class="table-info">
-                                <th scope="row">5</th>
-                                <td>Column content</td>
-                                <td>Column content</td>
-                                <td>Column content</td>
-                            </tr>
-                            </tbody>
-                        </table>
-                    </div>
-                </div>
-            </div>
-            <div class="col-lg-12">
-                <div class="card">
-                    <div class="card-block center">
-                        <h5 class="card-title">Indicador I#</h5>
-                        <p class="card-subtitle">Quick summary of this month's activity</p>
-                        <div id="chart"></div>
+                        <h5 class="card-title">Filtros</h5>
+                        <div class="row row-offcanvas row-offcanvas-left">
+                            <div class="col-lg-2 form-group">
+                                <label for="typeIndicator">Indicador</label>
+                                <select ng-model="typeIndicator" ng-change="indicatorSelected(typeIndicator)" class="form-control" id="typeIndicator">
+                                    <option value="">Selecione</option>
+                                    <option value="TF">Turma Finalizadas</option>
+                                    <option value="TC">Turma Canceladas</option>
+                                    <option value="C">Curso</option>
+                                    <option value="D">Demanda</option>
+                                </select>
+                            </div>
+                            <div class="col-lg-2 form-group">
+                                <label for="start-period">Período Início</label>
+                                <div class="form-group">
+                                    <input class="form-control" id="start-period" datetime-picker ng-model="startPeriod" date-format="dd-MM-yyyy" date-only>
+                                </div>
+                            </div>
+                            <div class="col-lg-2 form-group">
+                                <label for="end-period">Período Fim</label>
+                                <div class="form-group">
+                                    <input class="form-control" id="end-period" datetime-picker ng-model="endPeriod" date-format="dd-MM-yyyy" date-only>
+                                </div>
+                            </div>
+                            <div class="col-lg-2 form-group">
+                                <label for="filter-class">Turmas</label>
+                                <select ng-model="classesSelecteds" multiple="" class="form-control" id="filter-class">
+                                    <option value="1">Turma 1</option>
+                                    <option value="1">Turma 2</option>
+                                    <option value="1">Turma 3</option>
+                                    <option value="1">Turma 4</option>
+                                    <option value="1">Turma 5</option>
+                                </select>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
         </div>
+        <div ng-include="'pages/turmas-canceladas.html'"></div>
+        <div ng-include="'pages/turmas-finalizadas.html'"></div>
 
     </div>
     <!--/.container-->
     <footer class="navbar-fixed-bottom">
         <p class="text-right small">©2015 Company</p>
     </footer>
-
             <script type="text/javascript" src="bower_components/jquery/dist/jquery.min.js"></script>
             <script type="text/javascript" src="bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
             <script type="text/javascript" src="bower_components/underscore/underscore-min.js"></script>
             <script type="text/javascript" src="bower_components/moment/min/moment-with-locales.min.js"></script>
             <script type="text/javascript" src="bower_components/angular/angular.min.js"></script>
+            <script type="text/javascript" src="bower_components/angularjs-datetime-picker/angularjs-datetime-picker.min.js"></script>
             <script type="text/javascript" src="bower_components/c3/c3.min.js"></script>
             <script type="text/javascript" src="bower_components/d3/d3.min.js"></script>
             <script type="text/javascript" src="app.js"></script>
+            <script type="text/javascript" src="js/controllers/util/DatetimeUtil.js"></script>
             <script type="text/javascript" src="js/controllers/MainController.js"></script>
             <script type="text/javascript" src="js/controllers/ClassController.js"></script>
   </body>
