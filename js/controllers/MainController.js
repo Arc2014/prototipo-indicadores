@@ -37,6 +37,37 @@
       });
     }
 
+    function loadSendToAnalisisByApplicationConsultant () {
+      $timeout(function(){
+        $scope.chart3 = c3.generate({
+        bindto: '#chart4',
+        size: {
+          height: 500
+        },
+        data: {
+          labels: true,
+          colors: {
+            THAIS: '#828282',
+            ALINE: '#d9534f',
+            MAIRANE: '#60B044',
+            ROZIMARY: '#F6C600',
+            ANA: '#F97600',
+            CHRISTINA: '#00000'
+          },
+          columns: [
+            ['THAIS', 30],
+            ['ALINE', 12],
+            ['MAIRANE', 100],
+            ['ROZIMERY', 50],
+            ['ANA', 60],
+            ['CHRISTINA', 30]
+          ],
+          type: 'donut'
+        }
+      });
+      }, 2);
+    }
+
     function loadCourseClassFinalized () {
       $scope.chart = c3.generate({
         bindto: '#chart',
@@ -94,6 +125,9 @@
           break;
         case 'PCT':
           loadParticipantsInCourseClass();
+          break;
+        case 'SAC':
+          loadSendToAnalisisByApplicationConsultant()
           break;
       }
     }
