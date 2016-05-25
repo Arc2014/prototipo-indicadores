@@ -14,29 +14,21 @@
             <nav class="navbar navbar-fixed-top navbar-dark bg-danger">
                 <img class="navbar-brand pull-lg-left " src="img/ico-santander.png">
                 <a class="navbar-brand" href="#">INDICADORES</a>
-                    <ul class="nav navbar-nav">
-                        <li class="nav-item active">
-                            <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="#">Features</a>
-                        </li>
-                    </ul>
             </nav>
     <div class="container-fluid" id="main">
         <div class="row row-offcanvas row-offcanvas-left">
             <div class="col-lg-12">
                 <div class="card">
                     <div class="card-block center">
-                        <h5 class="card-title">Filtros</h5>
-                        <div class="row row-offcanvas row-offcanvas-left">
+                        <h5 class="card-title"><a class="collapsed" data-toggle="collapse" href="#filters">Filtros +</a></h5>
+                        <div class="row row-offcanvas row-offcanvas-left panel-collapse collapse in" id="filters" role="tabpanel" aria-labelledby="headingTwo">
                             <div class="col-lg-2 form-group">
                                 <label for="typeIndicator">Indicador</label>
-                                <select ng-model="typeIndicator" ng-change="indicatorSelected(typeIndicator)" class="form-control" id="typeIndicator">
+                                <select ng-model="typeIndicator" class="form-control" id="typeIndicator" required>
                                     <option value="">Selecione</option>
                                     <option value="TF">Turma Finalizadas</option>
                                     <option value="TC">Turma Canceladas</option>
-                                    <option value="C">Curso</option>
+                                    <option value="PCT">Participações em (Curso e Turmas)</option>
                                     <option value="D">Demanda</option>
                                 </select>
                             </div>
@@ -52,7 +44,7 @@
                                     <input class="form-control" id="end-period" datetime-picker ng-model="endPeriod" date-format="dd-MM-yyyy" date-only>
                                 </div>
                             </div>
-                            <div class="col-lg-2 form-group">
+                            <div class="col-lg-2 form-group" ng-show="typeIndicator && typeIndicator !== 'D'">
                                 <label for="filter-class">Turmas</label>
                                 <select ng-model="classesSelecteds" multiple="" class="form-control" id="filter-class">
                                     <option value="1">Turma 1</option>
@@ -62,6 +54,9 @@
                                     <option value="1">Turma 5</option>
                                 </select>
                             </div>
+                            <div class="col-lg-12">
+                                <input value="Carregar" type="button" ng-click="loadCharts(typeIndicator)" data-toggle="collapse" data-target="#filters" class="collapsed col-lg-1 btn btn-danger btn-rounded-deep btn-sm"/>
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -69,6 +64,7 @@
         </div>
         <div ng-include="'pages/turmas-canceladas.html'"></div>
         <div ng-include="'pages/turmas-finalizadas.html'"></div>
+        <div ng-include="'pages/participantes-curso-turma.html'"></div>
 
     </div>
     <!--/.container-->
@@ -86,6 +82,5 @@
             <script type="text/javascript" src="app.js"></script>
             <script type="text/javascript" src="js/controllers/util/DatetimeUtil.js"></script>
             <script type="text/javascript" src="js/controllers/MainController.js"></script>
-            <script type="text/javascript" src="js/controllers/ClassController.js"></script>
   </body>
 </html>
