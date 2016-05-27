@@ -20,7 +20,7 @@
         data: {
           labels: true,
           colors: {
-            2015: '#828282',
+            2015: '#000000',
             2016: '#d9534f'
           },
           columns: [
@@ -49,9 +49,9 @@
           colors: {
             THAIS: '#828282',
             ALINE: '#d9534f',
-            MAIRANE: '#60B044',
-            ROZIMARY: '#F6C600',
-            ANA: '#F97600',
+            MAIRANE: '#ABC111',
+            ROZIMARY: '#1BB38C',
+            ANA: '#9E3667',
             CHRISTINA: '#00000'
           },
           columns: [
@@ -74,7 +74,7 @@
         data: {
           labels: true,
           colors: {
-            2015: '#828282',
+            2015: '#000000',
             2016: '#d9534f'
           },
           columns: [
@@ -102,7 +102,7 @@
           data: {
             labels: true,
             colors: {
-              2015: '#828282',
+              2015: '#000000',
               2016: '#d9534f'
             },
             columns: [
