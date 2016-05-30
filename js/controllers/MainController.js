@@ -130,7 +130,7 @@
           loadParticipantsInCourseClass();
           break;
         case 'SAC':
-          loadSendToAnalisisByApplicationConsultant()
+          loadSendToAnalisisByApplicationConsultant();
           break;
       }
     }
