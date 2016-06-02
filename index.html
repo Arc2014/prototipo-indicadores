@@ -18,59 +18,51 @@
             </nav>
     <div class="container-fluid" id="main">
         <div class="row">
-            <div class="col-lg-10">
+            <div class="col-lg-12">
                 <div class="card">
                     <div class="card-block center">
-                        <div class=" col-lg-1">
-                            <span>
-                                <i style="color: #d9534f" class="fa fa-filter fa-4x" aria-hidden="true"></i>
-                            </span>
+                        <div class="card-header" style="border-bottom: #2b2d2f" data-toggle="collapse" data-target="#collapseFilter">
+                            <h5> Filtro<i style="color: #d9534f" class="fa fa-filter" aria-hidden="true"></i></h5>
                         </div>
-                        <div class="col-lg-3 form-group">
-                            <label for="typeIndicator">Indicador</label>
-                            <select style="margin-top: 5px" ng-model="typeIndicator" class="form-control" id="typeIndicator" required>
-                                <option value="">Selecione</option>
-                                <option value="TF">Turma Finalizadas</option>
-                                <option value="PCT">Participações em (Curso e Turmas)</option>
-                                <option value="SAC">Nº de solicitações de análise por CA</option>
-                            </select>
-                        </div>
-                        <div class="col-lg-3 form-group">
-                            <label for="start-period">Período Início-Fim </label>
-                            <span style="vertical-align: text-bottom"><i data-toggle="tooltip" data-placement="bottom" title="Período Início-Fim compreenderá a data de término da Turma" class="fa fa-question-circle-o" aria-hidden="true"></i></span>
-                            <div class="form-group">
-                                <input class="form-control" id="start-period"  aff-date-range ng-model="startPeriod">
+                        <div class="collapse" id="collapseFilter">
+                            <div class="col-lg-4 form-group">
+                                <label for="typeIndicator">Indicador</label>
+                                <select style="margin-top: 5px" ng-model="typeIndicator" class="form-control" id="typeIndicator" required>
+                                    <option value="">Selecione</option>
+                                    <option value="TF">Turma Finalizadas</option>
+                                    <option value="PCT">Participações em (Curso e Turmas)</option>
+                                    <option value="SAC">Nº de solicitações de análise por CA</option>
+                                </select>
+                            </div>
+                            <div class="col-lg-4 form-group">
+                                <label for="start-period">Período Início-Fim </label>
+                                <span style="vertical-align: text-bottom"><i data-toggle="tooltip" data-placement="bottom" title="Período Início-Fim compreenderá a data de término da Turma" class="fa fa-question-circle-o" aria-hidden="true"></i></span>
+                                <div class="form-group">
+                                    <input class="form-control" id="start-period"  aff-date-range ng-model="startPeriod">
+                                </div>
+                            </div>
+                            <div class="col-lg-4 form-group">
+                                <label for="filter-class">Turmas</label>
+                                <select ng-model="classesSelecteds" multiple="" class="form-control" id="filter-class">
+                                    <option value="1">Turma 1</option>
+                                    <option value="1">Turma 2</option>
+                                    <option value="1">Turma 3</option>
+                                    <option value="1">Turma 4</option>
+                                    <option value="1">Turma 5</option>
+                                </select>
+                            </div>
+                            <div class="card-footer" style="border-top: #2b2d2f">
+                                <a type="button" ng-click="loadCharts(typeIndicator)" data-toggle="collapse" data-target="#collapseFilter" class="btn btn-danger btn"><i class="fa fa-bar-chart-o fa-fw"></i> Carregar</a>
+                                <a style="margin-left: 27px;" ng-if="typeIndicator === 'TF'" class="btn btn-danger" href="report/VOL01 TURMAS SGL_CONSOLIDADO.xlsx"><i class="fa  fa-download fa-fw"></i>Exportar</a>
+                                <a style="margin-left: 27px;" ng-if="typeIndicator === 'PCT'" class="btn btn-danger" href="report/VOL04_Base Participações_CONSOLIDADO.xlsx"><i class="fa  fa-download fa-fw"></i>Exportar</a>
+                                <a style="margin-left: 27px;" ng-if="typeIndicator === 'SAC'" class="btn btn-danger" href="report/SLA11 EMISSÃO DE SOLICTAÇÃO PARA ANÁLISE.xlsx"><i class="fa  fa-download fa-fw"></i>Exportar</a>
                             </div>
                         </div>
-                        <div class="col-lg-4 form-group" ng-show="typeIndicator && typeIndicator !== 'D'">
-                            <label for="filter-class">Turmas</label>
-                            <select ng-model="classesSelecteds" multiple="" class="form-control" id="filter-class">
-                                <option value="1">Turma 1</option>
-                                <option value="1">Turma 2</option>
-                                <option value="1">Turma 3</option>
-                                <option value="1">Turma 4</option>
-                                <option value="1">Turma 5</option>
-                            </select>
-                        </div>
                     </div>
                 </div>
             </div>
-            <div class="col-lg-2">
-                <div class="card">
-                    <div class="card-block center">
-                        <div class="btn-group open">
-                        <a style="margin-left: 25px;" type="button" ng-click="loadCharts(typeIndicator)" data-toggle="collapse" data-target="#filters" class="btn btn-danger btn">
-                            <i class="fa fa-bar-chart-o fa-fw"></i> Carregar
-                        </a>
-                        </div>
-                        <div style="margin-top: 20px" class="btn-group open">
-                            <a style="margin-left: 27px;" ng-if="typeIndicator === 'TF'" class="btn btn-danger" href="report/VOL01 TURMAS SGL_CONSOLIDADO.xlsx"><i class="fa  fa-download fa-fw"></i>Exportar</a>
-                            <a style="margin-left: 27px;" ng-if="typeIndicator === 'PCT'" class="btn btn-danger" href="report/VOL04_Base Participações_CONSOLIDADO.xlsx"><i class="fa  fa-download fa-fw"></i>Exportar</a>
-                            <a style="margin-left: 27px;" ng-if="typeIndicator === 'SAC'" class="btn btn-danger" href="report/SLA11 EMISSÃO DE SOLICTAÇÃO PARA ANÁLISE.xlsx"><i class="fa  fa-download fa-fw"></i>Exportar</a>
-                        </div>
-                    </div>
-                </div>
-            </div>
+
+
         </div>
         <div ng-include="'pages/turmas-finalizadas.html'"></div>
         <div ng-include="'pages/participantes-curso-turma.html'"></div>
