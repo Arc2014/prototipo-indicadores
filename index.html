@@ -31,7 +31,6 @@
                             <select style="margin-top: 5px" ng-model="typeIndicator" class="form-control" id="typeIndicator" required>
                                 <option value="">Selecione</option>
                                 <option value="TF">Turma Finalizadas</option>
-                                <option value="TC">Turma Canceladas</option>
                                 <option value="PCT">Participações em (Curso e Turmas)</option>
                                 <option value="SAC">Nº de solicitações de análise por CA</option>
                             </select>
@@ -66,14 +65,13 @@
                         </div>
                         <div style="margin-top: 20px" class="btn-group open">
                             <a style="margin-left: 27px;" ng-if="typeIndicator === 'TF'" class="btn btn-danger" href="report/VOL01 TURMAS SGL_CONSOLIDADO.xlsx"><i class="fa  fa-download fa-fw"></i>Exportar</a>
-                            <a style="margin-left: 27px;" ng-if="typeIndicator === 'PCT'" class="btn btn-danger" href="report/participantes.xlsx"><i class="fa  fa-download fa-fw"></i>Exportar</a>
+                            <a style="margin-left: 27px;" ng-if="typeIndicator === 'PCT'" class="btn btn-danger" href="report/VOL04_Base Participações_CONSOLIDADO.xlsx"><i class="fa  fa-download fa-fw"></i>Exportar</a>
                             <a style="margin-left: 27px;" ng-if="typeIndicator === 'SAC'" class="btn btn-danger" href="report/SLA11 EMISSÃO DE SOLICTAÇÃO PARA ANÁLISE.xlsx"><i class="fa  fa-download fa-fw"></i>Exportar</a>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
-        <div ng-include="'pages/turmas-canceladas.html'"></div>
         <div ng-include="'pages/turmas-finalizadas.html'"></div>
         <div ng-include="'pages/participantes-curso-turma.html'"></div>
         <div ng-include="'pages/sends-consultants-to-analisys.html'"></div>
