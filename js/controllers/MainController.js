@@ -4,7 +4,6 @@
 
   module.controller('MainController',  ['$scope', '$timeout', function ($scope, $timeout) {
 
-
     $scope.showIndicator = {};
     var oldIndicatorType = '';
     $scope.chart = null;
