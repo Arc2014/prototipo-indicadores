@@ -27,7 +27,7 @@
     "c3": "^0.4.11",
     "underscore": "^1.8.3",
     "moment": "^2.13.0",
-    "angularjs-datetime-picker": "^0.1.20",
-    "font-awesome": "Font-Awesome#^4.6.3"
+    "font-awesome": "Font-Awesome#^4.6.3",
+    "bootstrap-daterangepicker": "^2.1.21"
   }
 }
