@@ -99,29 +99,6 @@
       });
     }
 
-    function loadCourseClassCanceled() {
-      $timeout(function(){
-        $scope.chart2 = c3.generate({
-          bindto: '#chart2',
-          size: {
-            height: 500
-          },
-          data: {
-            labels: true,
-            colors: {
-              2015: '#000000',
-              2016: '#d9534f'
-            },
-            columns: [
-              ['2015', 10],
-              ['2016', 8]
-            ],
-            type: 'pie'
-          }
-        });
-      }, 2);
-    }
-
     $scope.loadCharts = function loadCharts(type){
       $scope.showIndicator[oldIndicatorType] = false;
       $scope.showIndicator[type] = true;
