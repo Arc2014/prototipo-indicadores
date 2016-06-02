@@ -29,6 +29,7 @@
         },
         axis: {
           x: {
+            rotated: true,
             type: 'category',
             categories: ['Jan', 'Fev', 'Mar', 'Abr', 'Mai', 'Jun', 'Jul', 'Ago', 'Set', 'Out', 'Nov','Dez']
           }
@@ -40,28 +41,35 @@
       $timeout(function(){
         $scope.chart3 = c3.generate({
         bindto: '#chart4',
-        size: {
-          height: 500
-        },
+          size: {
+            height: 534
+          },
         data: {
           labels: true,
-          colors: {
-            THAIS: '#828282',
-            ALINE: '#d9534f',
-            MAIRANE: '#ABC111',
-            ROZIMARY: '#1BB38C',
-            ANA: '#9E3667',
-            CHRISTINA: '#00000'
+          color: function(inColor, data) {
+            var colors = ['#000000','#d9534f','#d0d5d8', '#9370DB', '#6495ED', '#3CB371', '#FABF62', '#ACB6DD', '#000000','#d9534f','#d0d5d8', '#9370DB', '#6495ED', '#3CB371'];
+            if(data.index !== undefined) {
+              return colors[data.index];
+            }
+
+            return inColor;
           },
           columns: [
-            ['THAIS', 30],
-            ['ALINE', 12],
-            ['MAIRANE', 100],
-            ['ROZIMERY', 50],
-            ['ANA', 60],
-            ['CHRISTINA', 30]
+            ['2016',1, 14, 6, 1, 1, 4, 6, 7, 1, 3, 1, 8, 1]
           ],
-          type: 'donut'
+          type: 'bar'
+        },
+        axis: {
+          rotated: true,
+          x: {
+            type: 'category',
+            categories: ['Juliana Seixas', 'Thais', 'Rozimery', 'Juliana AP', 'José Rui', 'Paulo', 'Janaina', 'Mairane', 'Roberta', 'Aline', 'Thaine', 'Rafael', 'Mariana']
+          }
+
+        },
+
+        legend: {
+          show: false
         }
       });
       }, 100);
